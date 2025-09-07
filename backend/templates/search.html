@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+<form class="mb-4" method="get" action="/search">
+	<div class="input-group">
+		<input type="text" class="form-control" name="query" placeholder="Search..." value="{{ query or '' }}">
+		<button class="btn btn-primary" type="submit">Search</button>
+	</div>
+</form>
+{% if results %}
+	<ul class="list-group">
+		{% for result in results %}
+			<li class="list-group-item">
+				{{ result.name }}
+				({{ result.calories }} kcal)
+			</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No results found.</p>
+{% endif %}
+{% endblock %}

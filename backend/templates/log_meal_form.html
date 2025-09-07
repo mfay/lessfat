@@ -1,29 +1,19 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <title>Log Meal</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="container mt-5">
-            {% if flash %}
-            <div class="alert alert-success">{{ flash }}</div>
-            {% endif %}
-            <form action="/add-meal" method="post">
-                <div class="mb-3">
-                    <label for="name"><strong>Meal Name:</strong></label>
-                    <input type="text" id="name" name="name" required class="form-control" />
-                </div>
+{% extends "base.html" %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+<form action="/add-meal" method="post">
+	<div class="mb-3">
+		<label for="name"><strong>Meal Name:</strong></label>
+		<input type="text" id="name" name="name" required class="form-control" />
+	</div>
 
-                <div class="mb-3">
-                    <label for="calories"><strong>Calories:</strong></label>
-                    <input type="number" id="calories" name="calories" required class="form-control" />
-                </div>
+	<div class="mb-3">
+		<label for="calories"><strong>Calories:</strong></label>
+		<input type="number" id="calories" name="calories" required class="form-control" />
+	</div>
 
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Log Meal</button>
-                </div>
-            </form>
-        </div>
-    </body>
-</html>
+	<div class="mb-3">
+		<button type="submit" class="btn btn-primary">Log Meal</button>
+	</div>
+</form>
+{% endblock %}
